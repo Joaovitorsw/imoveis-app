@@ -1,0 +1,10 @@
+CREATE DATABASE LOCADORA_IMOVEIS;
+USE LOCADORA_IMOVEIS;
+CREATE TABLE IMOVEIS(
+Id int(4) AUTO_INCREMENT,
+Endereco varchar(30) NOT NULL,
+Tipo varchar(50),
+Tipo_Contrato varchar(50),
+Valor decimal(15,2),
+PRIMARY KEY (Id )
+); 
