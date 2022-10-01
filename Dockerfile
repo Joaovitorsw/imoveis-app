@@ -1,7 +1,11 @@
-FROM ubuntu/nginx:1.18-20.04_beta   
-WORKDIR /usr/src/app
-COPY nginx.conf /etc/nginx/nginx.conf
-WORKDIR /usr/share/nginx/html
-COPY ./imoveis-web-nginx/dist/imoveis-web .
-EXPOSE 80
+FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build-env
+WORKDIR /app
 
+COPY ./imoveis-api . 
+RUN dotnet restore
+RUN dotnet publish -c Release -o out
+
+FROM mcr.microsoft.com/dotnet/aspnet:6.0
+WORKDIR /app
+COPY --from=build-env /app/out .
+CMD ASPNETCORE_URLS="http://*:$PORT" dotnet Imoveis\ API.dll
