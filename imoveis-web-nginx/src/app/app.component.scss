@@ -1,0 +1,106 @@
+:host {
+  display: block;
+
+  .auto-size {
+    width: 100%;
+    overflow-x: auto;
+  }
+  body {
+    padding: 0px 25px;
+  }
+  button {
+    margin-top: 50px;
+    background-color: #7bba1c;
+  }
+  header {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+  .logo {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(233, 233, 233);
+    max-width: 220px;
+    min-height: 190px;
+    border-radius: 50%;
+    transform: scale(0.7);
+    position: relative;
+    top: -21px;
+    h1 {
+      font-size: 24px;
+      font-weight: bold;
+      color: rgb(123, 186, 28);
+    }
+    img {
+      width: 80px;
+    }
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    border: 1px solid #ddd;
+
+    .table-header {
+      th {
+        background-color: #7bba1c8b !important;
+      }
+    }
+    th {
+      text-align: left;
+      padding: 8px 15px;
+      background-color: #f2f2f2;
+    }
+
+    td {
+      padding: 8px 15px;
+      border-bottom: 1px solid #ddd;
+    }
+    mat-icon {
+      position: relative;
+      left: 5px;
+
+      &:hover {
+        color: #7bba1c;
+      }
+    }
+
+    tr:nth-child(even) {
+      background-color: #f2f2f272;
+    }
+
+    tr:hover {
+      background-color: #7bba1c5e;
+    }
+  }
+  .loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+  .no-register {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+
+    mat-icon {
+      color: #7bba1c;
+    }
+  }
+
+  ::ng-deep {
+    .mat-progress-spinner circle,
+    .mat-spinner circle {
+      stroke: #7bba1c;
+    }
+  }
+}

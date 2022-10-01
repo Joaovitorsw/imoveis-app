@@ -1,0 +1,50 @@
+<header>
+  <div class="logo">
+    <img
+      src="https://i2.wp.com/www.bgcontabilidadeonline.com.br/wp-content/uploads/2018/08/corretor-de-imoveis-1.png?ssl=1"
+      alt="logo-web"
+    />
+    <h1>Imóveis Resende</h1>
+  </div>
+</header>
+
+<body *ngIf="imoveis$$ | async as imoveis; else loadingTemplate">
+  <div class="auto-size">
+    <table *ngIf="imoveis.length > 0; else noRegister">
+      <tr class="table-header">
+        <th>ID</th>
+        <th>Endereço</th>
+        <th>Tipo</th>
+        <th>Tipo Contrato</th>
+        <th>Valor</th>
+        <th>Editar</th>
+        <th>Remover</th>
+      </tr>
+      <tr *ngFor="let imovel of imoveis">
+        <td>{{ imovel.id }}</td>
+        <td>{{ imovel.endereco }}</td>
+        <td>{{ imovel.tipo }}</td>
+        <td>{{ imovel.tipoContrato }}</td>
+        <td>{{ imovel.valor }}</td>
+        <td><mat-icon (click)="openDialogEdit(imovel)">edit</mat-icon></td>
+        <td><mat-icon (click)="remove(imovel.id)">delete</mat-icon></td>
+      </tr>
+    </table>
+  </div>
+  <button color="primary" mat-raised-button (click)="openDialog()">
+    Adicionar
+  </button>
+</body>
+
+<ng-template #noRegister>
+  <div class="no-register">
+    <h2>Nenhum registro encontrado</h2>
+    <mat-icon> sentiment_very_dissatisfied </mat-icon>
+  </div>
+</ng-template>
+
+<ng-template #loadingTemplate>
+  <div class="loading">
+    <mat-spinner></mat-spinner>
+  </div>
+</ng-template>

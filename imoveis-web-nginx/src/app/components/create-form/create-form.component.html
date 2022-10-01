@@ -1,0 +1,34 @@
+<h1 mat-dialog-title>
+  {{ data ? "Atualizar um imovel" : "Cadastrar um novo imovel" }}
+</h1>
+
+<form [formGroup]="imovelForm">
+  <mat-form-field appearance="outline" floatLabel="always">
+    <mat-label> Endereço </mat-label>
+    <input matInput formControlName="endereco" />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" floatLabel="always">
+    <mat-label> Tipo </mat-label>
+    <input matInput formControlName="tipo" />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" floatLabel="always">
+    <mat-label> Tipo de Contrato </mat-label>
+    <input matInput formControlName="tipoContrato" />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" floatLabel="always">
+    <mat-label> Valor </mat-label>
+    <input matInput formControlName="valor" />
+  </mat-form-field>
+
+  <button
+    mat-raised-button
+    color="primary"
+    [disabled]="imovelForm.invalid"
+    (click)="onSubmit()"
+  >
+    {{ data ? "Atualizar" : "Cadastrar" }}
+  </button>
+</form>
